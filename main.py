@@ -9,11 +9,15 @@ from sklearn.preprocessing import LabelEncoder
 data = pd.read_csv('subway-data.csv')
 
 # Data Wrangling
+data = data[data['Station'].str.contains('STATION', case=False, na=False)]
+data = data[data['Line'].isin(['YU', 'BD', 'SHP'])]
+
 data['Date'] = pd.to_datetime(data['Date'])
 data['Hour'] = data['Time'].apply(lambda x: int(x.split(':')[0]))
 data['Minute'] = data['Time'].apply(lambda x: int(x.split(':')[1]))
 data['DayOfWeek'] = data['Date'].dt.dayofweek
 data['Delayed'] = data['Min Delay'] > 0
+
 
 # RandomForestClassifier requires the feature to be numerical
 # We have to encode categorical variables (Station, Bound, and Line)
@@ -23,12 +27,14 @@ for column in ['Station', 'Bound', 'Line']:
 
 print(data.head())
 
-features = ['Hour', 'Minute', 'DayOfWeek', 'Station', 'Line', 'Bound', 'Min Gap']
+features = ['Hour', 'Minute', 'DayOfWeek', 'Station', 'Line', 'Bound']
 X = data[features]
 y = data['Delayed']
 
 # Splitting the data into 80% training data and 20% test data
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2)
+
+print(X_train)
 
 # Train model
 model = RandomForestClassifier()
