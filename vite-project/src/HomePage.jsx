@@ -17,13 +17,16 @@ const HomePage = () => {
       bound: formData.get("bound"),
     };
 
-    const response = await fetch("http://localhost:5000/api/delay", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
+    const response = await fetch(
+      "https://datathon-m9s9.onrender.com/api/delay",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      }
+    );
 
     const result = await response.json();
     const { delayProb, ifDelay } = result;
