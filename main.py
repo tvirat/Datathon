@@ -53,7 +53,7 @@ print(y_pred)
 print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
 
 
-def perdict_if_delay(hour: int, minute: int, day_of_week: int, station: int, line: int, bound: int) -> bool:
+def perdict_if_delay(hour: int, minute: int, day_of_week: int, station: str, line: str, bound: str) -> bool:
     try:
         input_df = pd.DataFrame([{
             'Hour': hour,
@@ -67,6 +67,20 @@ def perdict_if_delay(hour: int, minute: int, day_of_week: int, station: int, lin
     except KeyError:
         return "invalid input"
 
+# print(perdict_if_delay(10, 20, 1, 'BAY STATION', 'YU', 'B'))
 
-print(perdict_if_delay(10, 20, 1, 'BAY STATION', 'YU', 'B'))
+def perdict_delay_prob(hour: int, minute: int, day_of_week: int, station: str, line: str, bound: str) -> tuple[str, int]:
+    try:
+        input_df = pd.DataFrame([{
+            'Hour': hour,
+            'Minute': minute,
+            'DayOfWeek': day_of_week,
+            'Station': label_encoders['Station'][station],
+            'Line': label_encoders['Line'][line],
+            'Bound': label_encoders['Bound'][bound]
+        }])
+        return station, model.predict_proba(input_df)[0][1]
+    except KeyError:
+        return "invalid input"
 
+# print(perdict_delay_prob(10, 20, 1, 'BAY STATION', 'YU', 'B'))
