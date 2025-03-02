@@ -18,7 +18,7 @@
  * First, our group analyzed the dataset of TTC subway delay, performing **graphical EDA with related visualizations**.
    This reveals key trends if the delays and can provide important business insights to TTC and private companies.
    (See the report)
- * Then, we used a **Random Desision Forests** Algorithm to train a machine learning model, which, given a set of information
+ * Then, we used a **Random Desicion Forests** Algorithm to train a machine learning model, which, given a set of information
    (Starting point, Destination, Departure Time, etc.) returns a prediction on the delay situation along with the
    perdicted probability of delay.
  * Finally, we **developed a website** that integrates with our machine learning model, enabling users to make predictions for
@@ -28,9 +28,9 @@
 ### 1. [Authors](#Authors)
 ### 2. [Project Purpose](#Project-Purpose)
 ### 3. [Usage Guide](#Usage-Guide)
-### 3. [ML Model](#ML-Model)
+### 4. [ML Model](#ML-Model)
 ### 5. [License](#License)
-### 8. [How to Contribute?](#Contributions)
+### 6. [How to Contribute?](#Contributions)
 
 ## Usage Guide
 ### Step 1:
@@ -44,6 +44,13 @@ Type in the your travel information and the station you are interested in (ALL C
 Click on **Submit** and prediction will be shown!!!
 ![Image](web_result.png)
 
+## ML Model
+* ML Model: We trained our model used an Random Desicion Forest alogorithm which took use of the external library
+  [scikit-learn](https://scikit-learn.org/stable/)
+* Performance: Running our model on a validation set of size about 4800 shows an accuracy of 73%
+* Here is a list of external libraries used:
+  1. Pandas: https://pandas.pydata.org/
+  2. Scikit-learn: https://scikit-learn.org/stable/
 
 ## License
 
