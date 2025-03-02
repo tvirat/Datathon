@@ -27,14 +27,15 @@
 ## Table of Contents
 ### 1. [Authors](#Authors)
 ### 2. [Project Purpose](#Project-Purpose)
-### 3. 
+### 3. [Usage Guide](#Usage-Guide)
+### 3. [ML Model](#ML-Model)
 ### 5. [License](#License)
 ### 8. [How to Contribute?](#Contributions)
 
 ## Usage Guide
 ### Step 1:
-To use the software, make sure you have followed the instructions in the [Installation Instructions](#installation-instructions)
-section if you haven't have the packages and dependencies ready.
+Navigate to the website our group developed: https://datathon-pearl.vercel.app/
+
 ### Step 2:
 Clone the project or download the zip file in [Our GitHub Repository](https://github.com/UofTDriv/Group157)
 Open the project in your IDE.
