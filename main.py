@@ -9,7 +9,10 @@ from sklearn.preprocessing import LabelEncoder
 data = pd.read_csv('subway-data.csv')
 
 # Data Wrangling
-data = data[data['Station'].str.contains('STATION', case=False, na=False)]
+data = data[data['Station'].str.contains('STATION', case=False, na=False) &
+            ~data['Station'].str.contains(' TO', case=False, na=False) &
+            ~data['Station'].str.contains(r'\(', case=False, na=False) &
+            ~data['Station'].str.contains('-', case=False, na=False)]
 data = data[data['Line'].isin(['YU', 'BD', 'SHP'])]
 
 data['Date'] = pd.to_datetime(data['Date'])
@@ -21,9 +24,13 @@ data['Delayed'] = data['Min Delay'] > 0
 
 # RandomForestClassifier requires the feature to be numerical
 # We have to encode categorical variables (Station, Bound, and Line)
+label_encoders = {} # A Mapping between categorical variables and their encoded values
 for column in ['Station', 'Bound', 'Line']:
     le = LabelEncoder()
     data[column] = le.fit_transform(data[column])
+    label_encoders[column] = dict(zip(le.classes_, le.transform(le.classes_)))
+
+print(label_encoders)
 
 print(data.head())
 
@@ -44,3 +51,4 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 print(y_pred)
 print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
+
