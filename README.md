@@ -1,6 +1,5 @@
 # 32871 SDSS Datathon - TTC Subway Delay Prediction
-# 02201 Data Crunchers
-
+# 02201 Team Transit Titans
 
 ## Authors
 * Zhe Wang
