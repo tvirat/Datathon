@@ -16,6 +16,7 @@ data = data[data['Station'].str.contains('STATION', case=False, na=False) &
 data = data[data['Line'].isin(['YU', 'BD', 'SHP'])]
 
 data['Date'] = pd.to_datetime(data['Date'])
+data['Month'] = data['Date'].dt.month
 data['Hour'] = data['Time'].apply(lambda x: int(x.split(':')[0]))
 data['Minute'] = data['Time'].apply(lambda x: int(x.split(':')[1]))
 data['DayOfWeek'] = data['Date'].dt.dayofweek
@@ -34,7 +35,7 @@ print(label_encoders)
 
 print(data.head())
 
-features = ['Hour', 'Minute', 'DayOfWeek', 'Station', 'Line', 'Bound']
+features = ['Month', 'Hour', 'Minute', 'DayOfWeek', 'Station', 'Line', 'Bound']
 X = data[features]
 y = data['Delayed']
 
@@ -53,9 +54,10 @@ print(y_pred)
 print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
 
 
-def perdict_if_delay(hour: int, minute: int, day_of_week: int, station: str, line: str, bound: str) -> bool:
+def perdict_if_delay(month: int, hour: int, minute: int, day_of_week: int, station: str, line: str, bound: str) -> bool:
     try:
         input_df = pd.DataFrame([{
+            'Month': month,
             'Hour': hour,
             'Minute': minute,
             'DayOfWeek': day_of_week,
@@ -67,11 +69,12 @@ def perdict_if_delay(hour: int, minute: int, day_of_week: int, station: str, lin
     except KeyError:
         return "invalid input"
 
-# print(perdict_if_delay(10, 20, 1, 'BAY STATION', 'YU', 'B'))
+# print(perdict_if_delay(11,10, 20, 1, 'UNION STATION', 'YU', 'B'))
 
-def perdict_delay_prob(hour: int, minute: int, day_of_week: int, station: str, line: str, bound: str) -> tuple[str, int]:
+def perdict_delay_prob(month: int, hour: int, minute: int, day_of_week: int, station: str, line: str, bound: str) -> tuple[str, int]:
     try:
         input_df = pd.DataFrame([{
+            'Month': month,
             'Hour': hour,
             'Minute': minute,
             'DayOfWeek': day_of_week,
@@ -83,4 +86,4 @@ def perdict_delay_prob(hour: int, minute: int, day_of_week: int, station: str, l
     except KeyError:
         return "invalid input"
 
-# print(perdict_delay_prob(10, 20, 1, 'BAY STATION', 'YU', 'B'))
+# print(perdict_delay_prob(11, 10, 20, 1, 'UNION STATION', 'YU', 'B'))
