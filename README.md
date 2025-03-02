@@ -35,18 +35,15 @@
 ## Usage Guide
 ### Step 1:
 Navigate to the website our group developed: https://datathon-pearl.vercel.app/
+![Image](website.png)
 
 ### Step 2:
-Clone the project or download the zip file in [Our GitHub Repository](https://github.com/UofTDriv/Group157)
-Open the project in your IDE.
-![Image](images/github_repo.png)
+Type in the your travel information and the station you are interested in (ALL CAPITAL).
+
 ### Step 3:
-In **src/main/java/app**, find the file named `Main`.
-Rightclick the file and click **Run** or open the file to run it.
-![Image](images/project_main.png)
-### Step 4:
-Seeing the App displayed and you are ready to start your journey!
-(See the [Software Features](#software-features) section for a tutorial of the app)
+Click on **Submit** and prediction will be shown!!!
+![Image](web_result.png)
+
 
 ## License
 
