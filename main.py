@@ -52,3 +52,21 @@ y_pred = model.predict(X_test)
 print(y_pred)
 print(f'Accuracy: {accuracy_score(y_test, y_pred)}')
 
+
+def perdict_if_delay(hour: int, minute: int, day_of_week: int, station: int, line: int, bound: int) -> bool:
+    try:
+        input_df = pd.DataFrame([{
+            'Hour': hour,
+            'Minute': minute,
+            'DayOfWeek': day_of_week,
+            'Station': label_encoders['Station'][station],
+            'Line': label_encoders['Line'][line],
+            'Bound': label_encoders['Bound'][bound]
+        }])
+        return model.predict(input_df)[0]
+    except KeyError:
+        return "invalid input"
+
+
+print(perdict_if_delay(10, 20, 1, 'BAY STATION', 'YU', 'B'))
+
