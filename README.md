@@ -88,7 +88,7 @@ TTC’s subway network faces persistent delays that affect commuters' daily rout
 ## Usage Guide
 
 ### Step 1:
-Navigate to the website: [https://datathon-pearl.vercel.app/](https://datathon-pearl.vercel.app/)
+Navigate to the website: [https://uoft-datathon.vercel.app/](https://uoft-datathon.vercel.app/)
 ![Image](website.png)
 
 ### Step 2:
