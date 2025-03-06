@@ -1,88 +1,119 @@
-# 32871 SDSS Datathon - TTC Subway Delay Prediction
-# 02201 Team Transit Titans
+# TTC Transit Delay Prediction
 
-## Authors
-* Zhe Wang
-* Virat Talan
-* Daivi Shah
-* Euichan Kim
+## Description
 
-## Project Purpose
- The TTC serves as a lifeline for Toronto, offering millions of daily trips across streetcars, subways, and
- buses. Covering key routes from Union to Finch and Pearson Airport to the Toronto Zoo, the network plays
- a crucial role in urban mobility. However, recurring delays across various routes hinder the TTC’s ability
- to deliver consistent service. This reliability issue undermines public confidence and complicates efforts to
- promote sustainable transportation, crucial for reducing the city’s carbon footprint by encouraging fewer car
- journeys. Addressing these challenges is vital for the TTC to fulfill its mandate of providing an incentive to
- alternative transit solutions
+The Toronto Transit Commission (TTC) serves as a lifeline for millions of daily commuters across the city's subway, streetcar, and bus networks. However, recurring delays across various routes pose significant challenges to its reliability, which undermines public confidence and complicates efforts to promote sustainable transportation. This project addresses these issues by analyzing TTC subway delay data, building a predictive machine learning model, and providing an easy-to-use web application for real-time predictions.
 
- **Our project consists of three parts:**
- * First, our group analyzed the dataset of TTC subway delay, performing **graphical EDA with related visualizations**.
-   This reveals key trends if the delays and can provide important business insights to TTC and private companies.
-   (See the report)
- * Then, we used a **Random Desicion Forests** Algorithm to train a machine learning model, which, given a set of information
-   (Starting point, Destination, Departure Time, etc.) returns a prediction on the delay situation along with the
-   perdicted probability of delay.
- * Finally, we **developed a website** that integrates with our machine learning model, enabling users to make predictions for
-   their future travel super conveniently!
+The project consists of three parts:
+1. **Exploratory Data Analysis (EDA)**: Visualizing key trends in TTC subway delays to identify patterns and gain business insights.
+2. **Machine Learning Model**: Using a Random Forest algorithm to predict delays based on factors like starting point, destination, and departure time.
+3. **Web Application**: A user-friendly interface that integrates the machine learning model, allowing users to input travel information and receive delay predictions.
 
 ## Table of Contents
-### 1. [Authors](#Authors)
-### 2. [Project Purpose](#Project-Purpose)
-### 3. [Usage Guide](#Usage-Guide)
-### 4. [ML Model](#ML-Model)
-### 5. [License](#License)
-### 6. [How to Contribute?](#Contributions)
+
+1. [Authors/Contributors](#authorscontributors)
+2. [Motivation](#motivation)
+3. [Problem Statement](#problem-statement)
+4. [Features](#features)
+5. [Technical Implementation](#technical-implementation)
+6. [Setup and Installation](#setup-and-installation)
+7. [Usage Guide](#usage-guide)
+8. [ML Model](#ml-model)
+9. [License](#license)
+10. [Feedback and Contributions](#feedback-and-contributions)
+11. [Credits and Acknowledgements](#credits-and-acknowledgements)
+
+## Authors/Contributors
+### 02201 Team Transit Titans
+- Zhe Wang
+- Virat Talan
+- Daivi Shah
+- Euichan Kim
+
+## Motivation
+
+Public transit delays can undermine the effectiveness of urban transportation systems, leading to frustration and decreased usage. By forecasting delays, commuters can make more informed decisions, and the TTC can improve service reliability. This project aims to provide actionable insights that contribute to enhancing the TTC’s operational efficiency and promoting sustainable transportation alternatives.
+
+## Problem Statement
+
+TTC’s subway network faces persistent delays that affect commuters' daily routines. Addressing these delays through predictive analytics can improve the transit experience and support the city's long-term goals of reducing carbon emissions. This project aims to develop a model that predicts delays based on a variety of factors, improving both operational efficiency and commuter satisfaction.
+
+## Features
+
+- **Interactive Web Application**: Allows users to input travel details (e.g., starting point, destination, departure time) and receive a delay prediction.
+- **Real-Time Predictions**: Get estimated delays and probabilities of delays based on historical data.
+- **Comprehensive EDA**: Visualizations showcasing key trends and patterns in subway delays.
+- **Machine Learning Model**: A Random Forest model for delay prediction with an accuracy of 73%.
+
+## Technical Implementation
+
+### Technologies Used:
+- **Frontend**: HTML, CSS, JavaScript, React, Tailwind CSS
+- **Backend**: Flask
+- **Machine Learning**: Random Forest, Scikit-learn, Pandas
+- **Database**: SQLite (for storing delay data)
+- **Deployment**: Vercel for the web application, GitHub for version control
+
+### Key Libraries:
+- **Pandas**: Data manipulation and analysis.
+- **Scikit-learn**: Machine learning library for building and training the model. 
+- **NumPy**: Library for numerical computations.
+- **Plotly**: Interactive graphing library for creating visualizations. 
+- **Matplotlib**: Plotting library for static, animated, and interactive visualizations. 
+
+
+## Setup and Installation
+
+1. Clone the repository:
+
+    ```bash
+    git clone https://github.com/your-username/ttc-delay-prediction.git
+    cd ttc-delay-prediction
+    ```
+
+2. Install required dependencies:
+
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+3. Run the backend server:
+
+    ```bash
+    python app.py
+    ```
+
+4. Access the web app in your browser at `http://127.0.0.1:5000`.
 
 ## Usage Guide
+
 ### Step 1:
-Navigate to the website our group developed: https://datathon-pearl.vercel.app/
+Navigate to the website: [https://datathon-pearl.vercel.app/](https://datathon-pearl.vercel.app/)
 ![Image](website.png)
 
 ### Step 2:
-Type in the your travel information and the station you are interested in (ALL CAPITAL).
+Enter your travel details (starting point, destination, and departure time) in the specified format (ALL CAPITAL).
 
 ### Step 3:
-Click on **Submit** and prediction will be shown!!!
+Click on **Submit** to view the predicted delay and probability.
 ![Image](web_result.png)
 
 ## ML Model
-* ML Model: We trained our model used an Random Desicion Forest alogorithm which took use of the external library
-  [scikit-learn](https://scikit-learn.org/stable/)
-* Performance: Running our model on a validation set of size about 4800 shows an accuracy of 73%
-* Here is a list of external libraries used:
-  1. Pandas: https://pandas.pydata.org/
-  2. Scikit-learn: https://scikit-learn.org/stable/
+
+### Model Overview:
+We trained a **Random Forest** model using the scikit-learn library. The model predicts whether a delay is expected, based on input parameters like starting point, destination, and departure time.
+
+### Performance:
+- The model was evaluated using a validation set of 4800 samples, achieving an accuracy of 73%.
 
 ## License
 
-Distributed under the Creative Commons Zero v1.0 Universal License. Project is dedicated to the world-wide public domain. The creators of the project (Zhe Wang, Virat Talan, Daivi Shah, Euichan Kim) disclaim responsibility for obtaining any necessary consents, permissions or other rights required for any use of this project. See LICENSE for more information.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
 
-## Contributions
+## Feedback and Contributions
 
-How can users make a fork of this repo?
- 1. Navigate to the home page of the repository
- 2. In the top right of the page, click on 'Fork'
- 3. Leave the 'Owner' selection as is. Change 'Repository Name' to the following format: {github username}_{fork number}, where 'fork number' specifies whether this is the first, second, third etc. fork you've made of this repo.
- 4. Adding a description is not necessary
- 5. Ensure that 'Copy the main branch only' is selected
- 6. Click on 'Create fork'
+This project was part of a SDSS **datathon** competition and is no longer accepting contributions. However, feedback is welcome! If you encounter any issues or have suggestions, feel free to open an issue on GitHub. 
 
-Guidlines for creating a good merge request.
-1. Write clear commit messages
-2. Ensure code quality (Follow some kind of linter e.g SolarLint)
-3. Appropriately use branching (i.e. create a branch when implementing a distinct feature or use case)
-4. Ensure that the merge quest description is thorough
-     - What does the merge request do?
-     - Why are the changes necessary?
-     - How were the changes implemented
-5. Provide evidence of successful testing (i.e. screenshots for changes to the UI) and adequate test coverage from provided test suite (at least 90% code coverage for core logic)
+## Credits and Acknowledgement
+- Special thanks to **SDSS** and **Toronto Transit Commission (TTC)** for providing the data used in this project.
 
-Protocols for reviewing and merging contributions.
-1. Automatic testing: automatic tests will be run to ensure that code in the merge request is correct and compatible with the current codebase.
-2. Review. A review will be selected to review your merge request. Expect merge requests to be completed between 2 and 5 business days. Reviewers will take into consderation the aformentioned criteria/guidlines for a good merge request. 
-4. Feedback. The reviewer will provide any necessary feedback regarding the request (NOTE: any merge requests NOT following these guidelines will be ignored and DELETED)
-5. Approval mechanism. An additional reviewer may be called for a second opinion before merging.
-
-
-### 
