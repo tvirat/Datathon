@@ -51,7 +51,7 @@ TTC’s subway network faces persistent delays that affect commuters' daily rout
 - **Frontend**: HTML, CSS, JavaScript, React, Tailwind CSS
 - **Backend**: Flask
 - **Machine Learning**: Random Forest, Scikit-learn, Pandas
-- **Database**: SQLite (for storing delay data)
+- **Database**: MySQL (for storing delay data)
 - **Deployment**: Vercel for the web application, GitHub for version control
 
 ### Key Libraries:
